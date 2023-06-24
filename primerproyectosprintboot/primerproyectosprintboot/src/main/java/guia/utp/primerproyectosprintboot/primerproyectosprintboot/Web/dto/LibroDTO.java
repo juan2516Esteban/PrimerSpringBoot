@@ -1,4 +1,4 @@
-package guia.utp.primerproyectosprintboot.primerproyectosprintboot;
+package guia.utp.primerproyectosprintboot.primerproyectosprintboot.Web.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -14,7 +14,7 @@ public class LibroServicioImpl implements LibroServicio {
      List<LibroDTO> libroDTOS;
     @Override
     public LibroDTO crearLibro(LibroDTO libroDTO) {
-        libroDTOS.add(libroDTO);
+        libroDTOS.add(libroDTO.getId(),libroDTO);
         return libroDTOS.get(libroDTO.getId());
     }
 
@@ -25,8 +25,20 @@ public class LibroServicioImpl implements LibroServicio {
 
     @Override
     public String eliminarLibro(Integer id) {
-        return "El libro "+libroDTOS.remove(id)+" fue eliminado exitosamente";
+
+       boolean estado = libroDTOS.remove(libroDTOS.get(id));
+
+        if(estado == true){
+            return "El libro fue eliminado exitosamente";
+        }else{
+            return "El libro no pudo ser eliminado exitosamente";
+        }
     }
 
+    @Override
+    public String modificarLibro(Integer id ,LibroDTO libroDTO){
+        libroDTOS.set(id ,libroDTO);
+        return "el libro en la posición "+id+" fue modificado por "+libroDTO;
+    }
 
 }

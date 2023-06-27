@@ -35,6 +35,10 @@ public class LibroControler {
     public String eliminarLibro(@RequestParam Integer id){
 
         return libroServicio.eliminarLibro(id);
+    }
 
+    @PutMapping("modificarLibro")
+    public String modificarLibro(@RequestParam Integer id,@RequestBody LibroDTO libroDTO ){
+        return libroServicio.modificarLibro(id,libroDTO);
     }
 }

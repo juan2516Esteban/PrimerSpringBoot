@@ -7,4 +7,6 @@ public interface LibroServicio {
     LibroDTO obtenerLibro(Integer id);
 
     String eliminarLibro(Integer id);
+
+    String modificarLibro(Integer id,LibroDTO libroDTO);
 }

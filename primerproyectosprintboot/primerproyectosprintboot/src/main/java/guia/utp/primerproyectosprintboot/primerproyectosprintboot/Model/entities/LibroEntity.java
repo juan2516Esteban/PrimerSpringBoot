@@ -3,11 +3,13 @@ package guia.utp.primerproyectosprintboot.primerproyectosprintboot.Model.entitie
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 @Table(name = "libro")
 @Entity
@@ -19,7 +21,7 @@ public class LibroEntity {
     private Integer id;
 
     @Column(name = "nombre_libro")
-    private String nombreLibro;
+    private String nombre;
 
     @Column(name = "autor_libro")
     private String autor;

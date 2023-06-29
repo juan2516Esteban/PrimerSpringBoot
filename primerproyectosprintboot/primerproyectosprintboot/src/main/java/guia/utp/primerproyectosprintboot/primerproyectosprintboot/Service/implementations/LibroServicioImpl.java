@@ -1,44 +1,70 @@
 package guia.utp.primerproyectosprintboot.primerproyectosprintboot.Service.implementations;
 
+import guia.utp.primerproyectosprintboot.primerproyectosprintboot.Model.entities.LibroEntity;
+import guia.utp.primerproyectosprintboot.primerproyectosprintboot.Model.repository.LibroRepository;
 import guia.utp.primerproyectosprintboot.primerproyectosprintboot.Service.interfaces.LibroServicio;
 import guia.utp.primerproyectosprintboot.primerproyectosprintboot.Web.dto.LibroDTO;
+import guia.utp.primerproyectosprintboot.primerproyectosprintboot.Web.dto.response.LibroEditorialResponse;
+import guia.utp.primerproyectosprintboot.primerproyectosprintboot.Web.exceptions.BadRequestException;
 import lombok.AllArgsConstructor;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-@AllArgsConstructor
-@Service
+import java.util.stream.Collectors;
 
+
+@Service
 public class LibroServicioImpl implements LibroServicio {
 
-     List<LibroDTO> libroDTOS;
+    @Autowired
+    private LibroRepository libroRepository;
+
+    @Autowired
+    private ModelMapper modelMapper;
     @Override
     public LibroDTO crearLibro(LibroDTO libroDTO) {
-        libroDTOS.add(libroDTO.getId(),libroDTO);
-        return libroDTOS.get(libroDTO.getId());
+
+        if(libroDTO.getNombre().isEmpty()) throw new BadRequestException("Los libros no pueden tener el nombre vacío");
+
+        LibroEntity libroEntity = modelMapper.map(libroDTO,LibroEntity.class);
+
+
+        libroEntity = libroRepository.save(libroEntity);
+
+        return modelMapper.map(libroEntity,LibroDTO.class);
     }
 
     @Override
-    public LibroDTO obtenerLibro(Integer id){
-        return libroDTOS.get(id);
+    public LibroDTO obtenerLibro(Integer id) {
+
+        LibroEntity libroEntitY = libroRepository.findById(id).get();
+
+        return modelMapper.map(libroEntitY,LibroDTO.class);
     }
 
     @Override
     public String eliminarLibro(Integer id) {
-
-       boolean estado = libroDTOS.remove(libroDTOS.get(id));
-
-        if(estado == true){
-            return "El libro fue eliminado exitosamente";
-        }else{
-            return "El libro no pudo ser eliminado exitosamente";
-        }
+        return null;
     }
 
     @Override
-    public String modificarLibro(Integer id ,LibroDTO libroDTO){
-        libroDTOS.set(id ,libroDTO);
-        return "el libro en la posición "+id+" fue modificado por "+libroDTO;
+    public String modificarLibro(Integer id, LibroDTO libroDTO) {
+        return null;
+    }
+
+    @Override
+    public List<LibroEditorialResponse> obtenerLibroPorEditorial(String edi) {
+
+        List<LibroEntity> libroEntities = libroRepository.findAllByEditorial(edi)
+                .orElseThrow(()-> new BadRequestException("No existen libros bajo esta editorial" + edi));
+
+        List<LibroEditorialResponse> responseList = libroEntities.stream()
+                .map(libroEntity -> modelMapper.map(libroEntity, LibroEditorialResponse.class))
+                .collect(Collectors.toList());
+
+        return responseList;
     }
 
 }

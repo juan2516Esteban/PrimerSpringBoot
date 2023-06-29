@@ -1,23 +1,15 @@
-package guia.utp.primerproyectosprintboot.primerproyectosprintboot.Web.dto;
+package guia.utp.primerproyectosprintboot.primerproyectosprintboot.Web.dto.response;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-
-public class LibroDTO {
-
-    private Integer id;
+public class LibroEditorialResponse {
 
     private String nombre;
 
     private String autor;
-
-    private String editorial;
-
 }

@@ -4,11 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="822fc7b0-eff3-4bf4-a042-37cbc564ed88" name="Changes" comment="" />
+    <list default="true" id="822fc7b0-eff3-4bf4-a042-37cbc564ed88" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../primerproyectosprintboot/primerproyectosprintboot/src/main/java/guia/utp/primerproyectosprintboot/primerproyectosprintboot/Model/entities/EditorialEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../primerproyectosprintboot/primerproyectosprintboot/src/main/java/guia/utp/primerproyectosprintboot/primerproyectosprintboot/Model/repository/EditorialRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../primerproyectosprintboot/primerproyectosprintboot/src/main/java/guia/utp/primerproyectosprintboot/primerproyectosprintboot/Service/implementations/EditorialServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../primerproyectosprintboot/primerproyectosprintboot/src/main/java/guia/utp/primerproyectosprintboot/primerproyectosprintboot/Service/interfaces/EditorialService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../primerproyectosprintboot/primerproyectosprintboot/src/main/java/guia/utp/primerproyectosprintboot/primerproyectosprintboot/Web/controllers/EditorialControler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../primerproyectosprintboot/primerproyectosprintboot/src/main/java/guia/utp/primerproyectosprintboot/primerproyectosprintboot/Web/dto/EditorialDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../primerproyectosprintboot/primerproyectosprintboot/src/test/java/guia/utp/primerproyectosprintboot/primerproyectosprintboot/Service/implementations/LibroServicioImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../basededatos.mv.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../primerproyectosprintboot/primerproyectosprintboot/src/main/java/guia/utp/primerproyectosprintboot/primerproyectosprintboot/Model/entities/LibroEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../primerproyectosprintboot/primerproyectosprintboot/src/main/java/guia/utp/primerproyectosprintboot/primerproyectosprintboot/Model/entities/LibroEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../primerproyectosprintboot/primerproyectosprintboot/src/main/java/guia/utp/primerproyectosprintboot/primerproyectosprintboot/Web/dto/LibroDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../primerproyectosprintboot/primerproyectosprintboot/src/main/java/guia/utp/primerproyectosprintboot/primerproyectosprintboot/Web/dto/LibroDTO.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -18,13 +32,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/25162/OneDrive/Escritorio/primerProyectoSpringBoot"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/25162/OneDrive/Escritorio/primerProyectoSpringBoot&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

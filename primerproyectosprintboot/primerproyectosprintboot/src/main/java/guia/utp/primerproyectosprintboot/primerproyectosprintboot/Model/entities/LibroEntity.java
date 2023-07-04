@@ -1,9 +1,6 @@
 package guia.utp.primerproyectosprintboot.primerproyectosprintboot.Model.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -26,7 +23,8 @@ public class LibroEntity {
     @Column(name = "autor_libro")
     private String autor;
 
-    @Column(name = "editorial_libro")
-    private String editorial;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_Editorial")
+    private EditorialEntity editorial;
 
 }

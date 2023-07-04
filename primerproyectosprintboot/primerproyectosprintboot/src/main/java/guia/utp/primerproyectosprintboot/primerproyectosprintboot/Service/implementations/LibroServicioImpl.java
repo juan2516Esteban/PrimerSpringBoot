@@ -3,6 +3,7 @@ package guia.utp.primerproyectosprintboot.primerproyectosprintboot.Service.imple
 import guia.utp.primerproyectosprintboot.primerproyectosprintboot.Model.entities.LibroEntity;
 import guia.utp.primerproyectosprintboot.primerproyectosprintboot.Model.repository.LibroRepository;
 import guia.utp.primerproyectosprintboot.primerproyectosprintboot.Service.interfaces.LibroServicio;
+import guia.utp.primerproyectosprintboot.primerproyectosprintboot.Service.interfaces.adaptaer.EditorialAdapter;
 import guia.utp.primerproyectosprintboot.primerproyectosprintboot.Web.dto.LibroDTO;
 import guia.utp.primerproyectosprintboot.primerproyectosprintboot.Web.dto.response.LibroEditorialResponse;
 import guia.utp.primerproyectosprintboot.primerproyectosprintboot.Web.exceptions.BadRequestException;
@@ -23,10 +24,14 @@ public class LibroServicioImpl implements LibroServicio {
 
     @Autowired
     private ModelMapper modelMapper;
+    @Autowired
+    private EditorialAdapter editorialAdapter;
     @Override
     public LibroDTO crearLibro(LibroDTO libroDTO) {
 
         if(libroDTO.getNombre().isEmpty()) throw new BadRequestException("Los libros no pueden tener el nombre vacío");
+        if(libroDTO.getEditorial().getId() == null)
+            libroDTO.setEditorial(editorialAdapter.crearEditorial(libroDTO.getEditorial()));
 
         LibroEntity libroEntity = modelMapper.map(libroDTO,LibroEntity.class);
 
@@ -57,7 +62,7 @@ public class LibroServicioImpl implements LibroServicio {
     @Override
     public List<LibroEditorialResponse> obtenerLibroPorEditorial(String edi) {
 
-        List<LibroEntity> libroEntities = libroRepository.findAllByEditorial(edi)
+        List<LibroEntity> libroEntities = libroRepository.findAllByeditorial(edi)
                 .orElseThrow(()-> new BadRequestException("No existen libros bajo esta editorial" + edi));
 
         List<LibroEditorialResponse> responseList = libroEntities.stream()

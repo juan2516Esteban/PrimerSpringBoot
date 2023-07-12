@@ -13,6 +13,6 @@ public interface LibroServicio {
 
     String modificarLibro(Integer id,LibroDTO libroDTO);
 
-    List<LibroEditorialResponse> obtenerLibroPorEditorial(String edi);
+    List<LibroEditorialResponse> obtenerLibroPorEditorial(Integer edi);
 
 }

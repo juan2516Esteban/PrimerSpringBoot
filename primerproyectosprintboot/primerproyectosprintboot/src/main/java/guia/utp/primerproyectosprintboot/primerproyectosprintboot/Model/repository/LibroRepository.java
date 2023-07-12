@@ -9,9 +9,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface LibroRepository extends JpaRepository<LibroEntity,Integer> {
-
-    @Query(value = "SELECT * FROM LIBRO li  JOIN EDITORIAL edi ON li.ID_EDITORIAL = edi.ID WHERE edi.ID = :editorial"
-            ,nativeQuery = true)
-    Optional<List<LibroEntity>> findAllByeditorial(String editorial);
+    Optional<List<LibroEntity>> findAllByEditorialId(Integer editorial);
 
 }

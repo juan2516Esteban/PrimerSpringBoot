@@ -4,7 +4,8 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@Data
+@Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -24,7 +25,6 @@ public class LibroEntity {
     private String autor;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_Editorial")
     private EditorialEntity editorial;
 
 }

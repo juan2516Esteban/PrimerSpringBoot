@@ -7,7 +7,6 @@ import guia.utp.primerproyectosprintboot.primerproyectosprintboot.Service.interf
 import guia.utp.primerproyectosprintboot.primerproyectosprintboot.Web.dto.LibroDTO;
 import guia.utp.primerproyectosprintboot.primerproyectosprintboot.Web.dto.response.LibroEditorialResponse;
 import guia.utp.primerproyectosprintboot.primerproyectosprintboot.Web.exceptions.BadRequestException;
-import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -60,9 +59,9 @@ public class LibroServicioImpl implements LibroServicio {
     }
 
     @Override
-    public List<LibroEditorialResponse> obtenerLibroPorEditorial(String edi) {
+    public List<LibroEditorialResponse> obtenerLibroPorEditorial(Integer edi) {
 
-        List<LibroEntity> libroEntities = libroRepository.findAllByeditorial(edi)
+        List<LibroEntity> libroEntities = libroRepository.findAllByEditorialId(edi)
                 .orElseThrow(()-> new BadRequestException("No existen libros bajo esta editorial" + edi));
 
         List<LibroEditorialResponse> responseList = libroEntities.stream()

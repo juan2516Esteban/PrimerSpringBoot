@@ -1,6 +1,7 @@
 package guia.utp.primerproyectosprintboot.primerproyectosprintboot.Service.implementations;
 
 import guia.utp.primerproyectosprintboot.primerproyectosprintboot.Model.entities.EditorialEntity;
+import guia.utp.primerproyectosprintboot.primerproyectosprintboot.Model.entities.LibroEntity;
 import guia.utp.primerproyectosprintboot.primerproyectosprintboot.Model.repository.EditorialRepository;
 import guia.utp.primerproyectosprintboot.primerproyectosprintboot.Service.interfaces.EditorialService;
 import guia.utp.primerproyectosprintboot.primerproyectosprintboot.Service.interfaces.adaptaer.EditorialAdapter;
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -38,10 +40,6 @@ public class EditorialServiceImpl implements EditorialService , EditorialAdapter
 
         EditorialEntity editorialEntitys = editorialRepository.findById(id)
                 .orElseThrow(() -> new BadRequestException("No existen editoriales bajo este ID: "+ id));
-
-          editorialEntitys.getLibro().stream().map(editorialEntity -> modelMapper
-                .map(editorialEntity,EditorialResponse.class))
-                .collect(Collectors.toList());
 
         return modelMapper.map(editorialEntitys,EditorialResponse.class);
     }

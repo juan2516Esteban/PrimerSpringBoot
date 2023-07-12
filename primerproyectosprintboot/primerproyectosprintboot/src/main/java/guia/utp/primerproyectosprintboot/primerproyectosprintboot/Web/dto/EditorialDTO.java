@@ -21,5 +21,4 @@ public class EditorialDTO {
 
     private String direccion;
 
-    private LibroDTO libro;
 }

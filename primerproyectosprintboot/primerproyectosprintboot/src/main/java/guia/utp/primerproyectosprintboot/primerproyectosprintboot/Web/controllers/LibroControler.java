@@ -47,7 +47,7 @@ public class LibroControler {
 
     @GetMapping("obtenerLibroPorEditorial")
     public ResponseEntity<List<LibroEditorialResponse>> obtenerLibroPorEditorial
-            (@RequestParam("editorial") String edi){
+            (@RequestParam("editorial") Integer edi){
 
         return new ResponseEntity<>(libroServicio.obtenerLibroPorEditorial(edi),HttpStatus.FOUND);
     }

@@ -1,12 +1,12 @@
 package guia.utp.primerproyectosprintboot.primerproyectosprintboot.Model.entities;
 
-import guia.utp.primerproyectosprintboot.primerproyectosprintboot.Web.dto.LibroDTO;
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -27,5 +27,6 @@ public class EditorialEntity {
 
     @OneToMany(fetch = FetchType.LAZY,
     orphanRemoval = true)
-    private List<LibroEntity> libro;
+    @JoinColumn(name = "Editorial_Id")
+    private List<LibroEntity> libros;
 }
